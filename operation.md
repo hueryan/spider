@@ -5,10 +5,9 @@ conda activate spider
 
 ```bash
 pip install requests  # 安装 requests
-
+pip install httpx[http2]
 pip install aiohttp
 pip install cchardet aiodns # 字符编码检测库 cchardet, 加速 DNS 解析库 aiodns
-
 pip install pyquery 
 ```
 
@@ -25,7 +24,7 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:hueryan/Spider.git
+git remote add origin git@github.com:hueryan/spider.git
 git push -u origin main
 ```
 
