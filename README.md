@@ -114,3 +114,23 @@ bs解析时依赖解析器，除了py标准库中的html还支持第三方解析
   | previous_siblings | 获取前面的所有兄弟节点 |
   
 - bs_demo7：`attrs['class']` 获取class的属性值
+
+- bs_demo8：方法选择器、通过 `name` 查询、通过 `attrs` 查询，常用属性也可以不用attrs，直接 `find_all(class_='elements')` 查询class为 `elements` 的元素 。
+  现在使用 `string` (之前使用 `text` )
+
+  | API                                                | 描述                                                         |
+  | -------------------------------------------------- | ------------------------------------------------------------ |
+  | find_all(name, attrs, recursive, string, **kwargs) | 查询所有符合条件的元素                                       |
+  | find(name, attrs, recursive, string, **kwargs)     | 返回第一个符合条件的元素                                     |
+  | find_parents 和 find_parent                        | 前者：所有祖先节点、后者：直接父节点                         |
+  | find_next_siblings 和 find_next_sibling            | 前者：后面所有兄弟节点、后者：后面第一个兄弟节点             |
+  | find_previous_siblings 和 find_previous_sibling    | 前者：前面所有兄弟节点、后者：前面第一个兄弟节点             |
+  | find_all_next 和 find_next                         | 前者：节点后面所有符合条件的节点、后者：后面第一个符合条件的节点 |
+
+- bs_demo9：css选择器
+
+  `soup.select('tag | .class | #id')`  可以选择 标签、class、id 如 `soup.select('#list-2 .element')` 选用id为list-2下class为element的标签
+
+  直接获取属性、attrs获取属性
+
+  获取文本值 `.select('li').get_text()`
