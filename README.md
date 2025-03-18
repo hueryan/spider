@@ -134,3 +134,56 @@ bs解析时依赖解析器，除了py标准库中的html还支持第三方解析
   直接获取属性、attrs获取属性
 
   获取文本值 `.select('li').get_text()`
+  
+### pyquery
+
+[参考pyquery](http://pyquery.readthedocs.io)
+
+`pip install pyquery` 
+
+- pq_demo1：打印文本、爬取网站获取标签、也可以传入文件
+
+- pq_demo2：CSS选择器
+
+- pq_demo3：通过 `find` 查标签，当 `class="item-0 active"` 是css选择器 `('.item-0.active)'` 
+
+  | 方法     | 描述         |
+  | -------- | ------------ |
+  | find     | 所有子孙节点 |
+  | children | 查找子节点   |
+  | parent   | 直接父节点   |
+  | parents  | 祖先节点     |
+  | siblings | 兄弟节点     |
+  
+- pq_demo4：PyQuery类型都是 `PyQuery类型` 单个节点可直接打印输出，也可以转化成str。多个节点需要调用 `items` 。通过 `.attr()` 获取属性
+  
+  | 方法                        | 描述                                                         |
+  | --------------------------- | ------------------------------------------------------------ |
+  | .items                      | 返回多节点是用该方法获取标签                                 |
+  | .attr('href')    .attr.href | 获取标签的href属性值。当返回多值时，调用该方法之返回第一个，此时通过遍历在attr获取属性值 |
+  | .text()                     | 忽略节点内所有html，只获取纯文字内容。想要获取其中html需要调用html。多个节点时可以直接获取，并且合成一个字符串 |
+  | .html()                     | 获取该节点后层的html。多个节点时需要items遍历获取，否则只返回第一个 |
+  
+- pq_demo5：对节点进行动态修改
+  
+  | 方法                               | 描述                         |
+  | ---------------------------------- | ---------------------------- |
+  | remove_class()                     | 移除该节点的某个class值      |
+  | add_class()                        | 给该节点添加class值          |
+  | .attr('name', 'link')              | 在该节点添加name属性值为link |
+  | .text('change item')               | 将该节点text转化成后面内容   |
+  | .html('<span>change item</span>>') | 将该html替换该节点           |
+  | .find('p').remove()                | 删除p节点                    |
+  
+- pq_demo6：伪类选择器
+
+  | 选择器            | 描述                 |
+  | ----------------- | -------------------- |
+  | :first-child      | 第一个标签           |
+  | :last-child       | 最后一个标签         |
+  | :nth-child(2)     | 第二个节点           |
+  | :gt(2)            | 第三个之后的节点     |
+  | nth-child(2n)     | 偶数位置的标签       |
+  | :contains(second) | 含有second文本的标签 |
+
+  
