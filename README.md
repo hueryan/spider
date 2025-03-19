@@ -1,6 +1,6 @@
 # Spider
 
-## 第2章-基本库的使用
+## [第2章-基本库的使用](第2章/)
 
 2.1-urllib的使用] [_](https://github.com/Python3WebSpider/UrllibTest)   
 
@@ -12,7 +12,7 @@
 
 2.5-基础爬虫案例实战 [_](https://github.com/Python3WebSpider/ScrapeSsr1)  exept [spider2.py](https://github.com/Python3WebSpider/ScrapeSsr1/blob/master/spider2.py) 
 
-## [第3章-网页数据的解析爬取](第3章/README.md)
+## [第3章-网页数据的解析爬取](第3章/)
 
 3.1-XPath的使用 [_](https://github.com/Python3WebSpider/XPathTest) 
 
@@ -22,7 +22,7 @@
 
 3.4-parsel的使用 [_](https://github.com/Python3WebSpider/ParselTest) 
 
-## [第 4 章](第4章/README.md)
+## [第 4 章](第4章/)
 
 4.1-txt文本文件存储
 
