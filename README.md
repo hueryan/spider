@@ -22,10 +22,12 @@
 
 3.4-parsel的使用 [_](https://github.com/Python3WebSpider/ParselTest) 
 
-## [第 4 章](第4章/)
+## [第 4 章-数据的存储](第4章/)
 
 4.1-txt文本文件存储
 
 4.2-JSON文件存储
 
 4.3-CSV文件存储 [_](https://github.com/Python3WebSpider/FileStorageTest) 
+
+4.4-MySQL存储 [_](https://github.com/Python3WebSpider/MySQLTest) 

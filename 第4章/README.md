@@ -42,3 +42,11 @@ json数据使用双引号引用
   
 
   
+
+## MySQL 存储
+
+安装 `pip install pymysql` [_](https://setup.scrape.center/pymysql) 
+
+- mq_demo1：连接MySQL数据库、创建表
+- mq_demo2：增、改
+- mq_demo3：删、查
