@@ -198,6 +198,7 @@ bs解析时依赖解析器，除了py标准库中的html还支持第三方解析
   | .xpath()  |      |
   | .get()    |      |
   | .getall() |      |
+  
 - parsel_demo2：选取属性。css选取属性使用 `:attr()` 并传入属性名称。xpath用 `/@` 再加属性名。用 `.get()` 获取
+
 - parsel_demo3：正则匹配
-- 
