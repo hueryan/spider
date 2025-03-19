@@ -1,12 +1,10 @@
 # Spider
 
-
-
 ## 第3章
 
 ### xpath
 
- `pip install lxml` 
+ 安装 `pip install lxml`  [ ](https://setup.scrape.center/lxml) 
 
 | 表达式    | 描述                     |
 | --------- | ------------------------ |
@@ -68,7 +66,7 @@ xpath的运算符
 
 bs解析时依赖解析器，除了py标准库中的html还支持第三方解析器
 
-安装 `pip install bs4` 
+安装 `pip install bs4` [ ](https://setup.scrape.center/beautifulsoup) 
 
 | 解析器          | 使用方法                             | 优势                                                         | 劣势                   |
 | --------------- | ------------------------------------ | ------------------------------------------------------------ | ---------------------- |
@@ -139,7 +137,7 @@ bs解析时依赖解析器，除了py标准库中的html还支持第三方解析
 
 [参考pyquery](http://pyquery.readthedocs.io)
 
-`pip install pyquery` 
+安装 `pip install pyquery` [ ](https://setup.scrape.center/pyquery) 
 
 - pq_demo1：打印文本、爬取网站获取标签、也可以传入文件
 
@@ -186,4 +184,20 @@ bs解析时依赖解析器，除了py标准库中的html还支持第三方解析
   | nth-child(2n)     | 偶数位置的标签       |
   | :contains(second) | 含有second文本的标签 |
 
-  
+### parsel
+
+[参考parsel](https://parsel.readthedocs.io/en/latest/) 
+
+安装 `pip install parsel` [ ](https://setup.scrape.center/parsel) 
+
+- parsel_demo1：css、xpath方法提取元素。遍历用xpath提取文本
+
+  | 方法      | 描述 |
+  | --------- | ---- |
+  | .css()    |      |
+  | .xpath()  |      |
+  | .get()    |      |
+  | .getall() |      |
+- parsel_demo2：选取属性。css选取属性使用 `:attr()` 并传入属性名称。xpath用 `/@` 再加属性名。用 `.get()` 获取
+- parsel_demo3：正则匹配
+- 
