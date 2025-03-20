@@ -55,7 +55,9 @@ json数据使用双引号引用
 
 `pip install pymongo` [_](http://setup.scrape.center/mongodb) [_](http://setup.scrape.center/mongodb) 
 
-- mg_demo1：连接MongoDB、指定数据库、指定集合、插入数据、查询数据、计数
+- mg_demo1：连接MongoDB、指定数据库、指定集合、插入数据
+
+- mg_demo2：查询数据
 
   条件查询
 
@@ -90,18 +92,24 @@ json数据使用双引号引用
   | collection.find().sort('name', pymongo.ASCENDING).skip(2)    | 偏移2位                                |
   | collection.find().sort('name', pymongo.ASCENDING).skip(2).limit(3) | 限制3个结果                            |
 
+  
+
+- mg_demo3：计数、排序、偏移（上表格）
+
   不要使用大偏移量查询，通过上次 `_id` 查询
 
+- mg_demo4：更新数据
+
   update_one(condition, {'$set':stu})
-
+  
   age + 1
-
+  
   update_many(condition, {'$inc':{'age':1}})
-
+  
   | 方法                 | ...            |
   | -------------------- | -------------- |
   | find_one_and_delete  | create_index   |
   | find_one_and_replace | create_indexes |
   | find_one_and_update  | drop_index     |
-
   
+- mg_demo5：删除数据集、库
