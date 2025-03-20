@@ -53,7 +53,7 @@ json数据使用双引号引用
 
 ## MongoDB
 
-`pip install pymongo` [_](http://setup.scrape.center/mongodb) [_](http://setup.scrape.center/mongodb) 
+`pip install pymongo` [_](http://setup.scrape.center/mongodb) [_](http://setup.scrape.center/pymongo) 
 
 - mg_demo1：连接MongoDB、指定数据库、指定集合、插入数据
 
