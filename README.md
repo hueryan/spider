@@ -33,3 +33,5 @@
 4.4-MySQL存储 [_](https://github.com/Python3WebSpider/MySQLTest) 
 
 4.5-MongoDB文档存储 [_](https://github.com/Python3WebSpider/MongoDBTest) 
+
+4.6-Redis缓存存储
