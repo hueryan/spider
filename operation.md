@@ -28,3 +28,17 @@ git remote add origin git@github.com:hueryan/spider.git
 git push -u origin main
 ```
 
+
+
+MongoDB 
+
+[zip安装](https://www.mongodb.com/try/download/community-kubernetes-operator) 
+
+[shell安装](https://www.mongodb.com/try/download/shell) 
+
+```
+mongod  --install --dbpath D:\ProgramFiles\mongodb\data --logpath D:\ProgramFiles\mongodb\logs\mongodb.log
+
+mongosh --host=localhost --port=27017
+```
+

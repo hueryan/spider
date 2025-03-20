@@ -31,3 +31,5 @@
 4.3-CSV文件存储 [_](https://github.com/Python3WebSpider/FileStorageTest) 
 
 4.4-MySQL存储 [_](https://github.com/Python3WebSpider/MySQLTest) 
+
+4.5-MongoDB文档存储 [_](https://github.com/Python3WebSpider/MongoDBTest) 
