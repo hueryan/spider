@@ -79,3 +79,78 @@ redis-server --service-start
 Win+R -> services.msc -> Redis 
 ```
 
+### **ElasticSearch**
+
+[elasticSearch](https://www.elastic.co/cn/downloads/past-releases#elasticsearch) 
+
+修改指定版本JDK, `D:\ProgramFiles\elasticsearch-8.17.3\bin\elasticsearch-env-.bat` 40行
+
+```diff
+- if defined ES_JAVA_HOME (
+-   set JAVA="%ES_JAVA_HOME%\bin\java.exe"
+-   set JAVA_TYPE=ES_JAVA_HOME
+- 
+-   if not exist !JAVA! (
+-     echo "could not find java in !JAVA_TYPE! at !JAVA!" >&2
+-     exit /b 1
+-   )
+- 
+-   rem check the user supplied jdk version
+-   !JAVA! -cp "%ES_HOME%\lib\java-version-checker\*" "org.elasticsearch.tools.java_version_checker.JavaVersionChecker" || exit /b 1
+- ) else (
+-   rem use the bundled JDK (default)
+-   set JAVA="%ES_HOME%\jdk\bin\java.exe"
+-   set "ES_JAVA_HOME=%ES_HOME%\jdk"
+-   set JAVA_TYPE=bundled JDK
+- )
+
++ set JAVA_HOME=D:\ProgramFiles\Java\jdk-17
++ if "%JAVA_HOME%" == "" (
++   set JAVA="%ES_HOME%\jdk\bin\java.exe"
++   set JAVA_HOME="%ES_HOME%\jdk"
++   set JAVA_TYPE=bundled jdk
++ ) else (
++   set JAVA="%JAVA_HOME%\bin\java.exe"
++   set JAVA_TYPE=JAVA_HOME
++ )
+```
+
+修改 elasticsearch.yml 文件
+
+```diff
+- xpack.security.enabled: true
+- xpack.security.http.ssl:
+-   enabled: true
+
++ xpack.security.enabled: false
++ xpack.security.http.ssl:
++   enabled: false
+```
+
+服务安装等
+
+```diff
+elasticsearch-service install
++                     remove
++					  start
++					  stop
+```
+
+启动服务
+
+```shell
+elasticsearch # 命令行启动 elasticsearch 服务。通过cmd显示
+
+elasticsearch-service start
+
+Win+R -> services.msc -> Elasticsearch 8.17.3
+```
+
+通过 `localhost:9200` 进入
+
+在 `\bin` 文件中通过 `.\elasticsearch-reset-password -u elastic` 获取账号密码
+
+
+
+
+

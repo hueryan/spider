@@ -244,3 +244,106 @@ ttl：
 | hvals(name)                  | 从键名为 name 的散列表中获取所有映射键值               | name：键名                                 | redis.hvals('price')                           | 从键名为 price 的散列表中获取所有映射键值            | [b'5', b'6', b'2', b'6']                                     |
 | hgetall(name)                | 从键名为 name 的散列表中获取所有映射键值对             | name：键名                                 | redis.hgetall('price')                         | 从键名为 price 的散列表中获取所有映射键值对          | {b'cake': b'5', b'book': b'6', b'orange': b'7', b'pear': b'6'} |
 
+## Elasticsearch
+
+```diff
+- Relational DB -> Databases -> Tables -> Rows -> Columns
++ Elasticsearch -> Indices -> Types -> Documents -> Fields
+```
+
+`pip install elasticsearch[async]` [_](http://setup.scrape.center/elasticsearch) 
+
+[API文档](https://elasticsearch-py.readthedocs.io/en/latest/api.html#elasticsearch) 
+
+- es_demo1：初始化客户端、创建、删除索引
+
+  ```py
+  初始化
+  es = Elasticsearch(hosts='http://localhost:9200')
+  
+  es = Elasticsearch(
+      ['https://[username:password@]hostname:port'],
+      verify_certs=True, # 是否验证 SSL 证书
+  )
+  ```
+
+- es_demo2：插入数据
+
+- es_demo3：更新数据
+
+- es_demo4：删除数据
+
+- es_demo5：插入更多数据
+
+  安装插件 `.\elasticsearch-plugin install https://release.infinilabs.com/analysis-ik/stable/elasticsearch-analysis-ik-8.17.3.zip` 
+  
+  设置中文分词器
+  
+- es_demo6：查询数据 [更多查询参考](https://www.elastic.co/guide/en/elasticsearch/reference/8.17/query-dsl.html) 
+
+  **顶层参数**
+
+  | 字段        | 说明                                             |
+  | :---------- | :----------------------------------------------- |
+  | `took`      | 查询耗时（单位：毫秒），本例为 **3ms**。         |
+  | `timed_out` | 是否超时。`False` 表示查询未超时。               |
+  | `_shards`   | 分片信息（Elasticsearch 分布式搜索的底层信息）。 |
+  | `hits`      | 匹配的文档结果集。                               |
+
+  ------
+
+  **`_shards` 分片详情**
+
+  | 字段         | 说明                                             |
+  | :----------- | :----------------------------------------------- |
+  | `total`      | 总分片数（索引被分割成的分片总数）。             |
+  | `successful` | 成功参与查询的分片数（`1` 表示所有分片均成功）。 |
+  | `skipped`    | 跳过的分片数（通常因分片未包含相关数据）。       |
+  | `failed`     | 失败的分片数（`0` 表示无分片失败）。             |
+
+  ------
+
+  **`hits` 命中结果**
+
+  | 字段             | 说明                                                         |
+  | :--------------- | :----------------------------------------------------------- |
+  | `total.value`    | 匹配的文档总数（本例为 **1 条**）。                          |
+  | `total.relation` | 匹配总数的关系类型： - `eq`：精确值（总数准确）。 - `gte`：下限估计值。 |
+  | `max_score`      | 最高相关性评分（表示最匹配文档的分数）。                     |
+  | `hits[]`         | 具体的文档列表（按 `_score` 降序排列）。                     |
+
+  ------
+
+  **单个文档详情 (`hits[]` 中的条目)**
+
+  | 字段      | 说明                                           |
+  | :-------- | :--------------------------------------------- |
+  | `_index`  | 文档所属的索引名称（本例为 `news`）。          |
+  | `_id`     | 文档的唯一 ID（自动生成或手动指定）。          |
+  | `_score`  | 相关性评分（基于查询匹配程度，值越高越相关）。 |
+  | `_source` | 文档的原始数据（即插入时的 JSON 内容）。       |
+
+  **`_source` 字段参数解析** 
+  
+  | 字段名称 | 说明                                                         | 类型      | 示例值                                                    |
+  | :------- | :----------------------------------------------------------- | :-------- | :-------------------------------------------------------- |
+  | `title`  | 文章标题，使用 `ik_max_word` 分词器进行中文分词。            | `text`    | `"他，活出了我们理想的样子"`                              |
+  | `url`    | 文章链接，定义为 `keyword` 类型，用于精确匹配（如 URL 唯一性检索）。 | `keyword` | `"https://new.qq.com/omn/20210821/20210821A020ID00.html"` |
+
+  **补充说明**
+  
+  **字段类型**
+  
+  - **`text`**：适用于全文检索的文本类型（如 `title`），支持分词。
+  - **`keyword`**：适用于精确匹配的字符串类型（如 `url`），不进行分词。
+  
+  **分词器行为**
+  
+  - `title` 字段使用 `ik_max_word` 分词器，会将文本切分为最细粒度的词条。
+    示例：`"他，活出了我们理想的样子"` → 切分为 `["他", "活出", "理想", "样子"]` 等。
+  - `url` 字段为 `keyword` 类型，整体存储，不进行分词。
+  
+  **用途场景**
+  
+  - **`title`**：适合模糊搜索（如 `match` 查询）。
+  - **`url`**：适合精确匹配（如 `term` 查询）。

@@ -15,7 +15,14 @@ mapping = {
                 "search_analyzer": "ik_max_word"  # 搜索时也使用细粒度分词
             },
             "url": {
-                "type": "keyword"  # 显式定义为 keyword 类型（避免自动推断为 text）
+                "type": "keyword",  # 显式定义为 keyword 类型（避免自动推断为 text）
+                'fields': {
+                    'keyword': {  # ⚠️ Elasticsearch 自动为 text 类型字段生成 keyword 子字段
+                        'type': 'keyword',
+                        'ignore_above': 256  # 仅存储前 256 字符的 keyword（可能导致长 URL 被截断）
+                    }
+                }
+
             }
         }
     }
