@@ -346,4 +346,17 @@ ttl：
   **用途场景**
   
   - **`title`**：适合模糊搜索（如 `match` 查询）。
+  
   - **`url`**：适合精确匹配（如 `term` 查询）。
+
+## RabbitMQ
+
+`pip install pika` [_](http://setup.scrape.center/rabbitmq) [_](http://setup.scrape.center/pika) 
+
+[RabbitMQ官方文档](https://www.rabbitmq.com/docs) [pika](https://pika.readthedocs.io/en/stable/) 
+
+- rbt_demo1：基本用法，生产、消费者
+- rbt_demo2：消费者控制取用消息的频率，随用随取
+- rbt_demo3：优先级队列
+- rbt_demo4：队列持久化，若不设置重启后就没了
+- rbt_demo5：爬取 `ssr.scrape.center/detail/{i}` 

@@ -150,7 +150,60 @@ Win+R -> services.msc -> Elasticsearch 8.17.3
 
 在 `\bin` 文件中通过 `.\elasticsearch-reset-password -u elastic` 获取账号密码
 
+### RabbitMQ
+
+[Erlang](https://github.com/erlang/otp/releases) 添加 `ERLANG_HOME` 
+
+[Github](https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.0.7) 
+
+**手动指定 Erlang 路径**
+
+```shell
+# rabbitmq-service.bat 文件首行添加
+set ERLANG_HOME=D:\ProgramFiles\erlang
+```
 
 
 
+```shell
+# 安装插件
+rabbitmq-plugins.bat enable rabbitmq_management
+# 启用管理插件
+rabbitmq-plugins enable rabbitmq_management
+# 强制删除旧服务
+sc delete RabbitMQ
+# 查看服务是否安装
+sc query RabbitMQ
+# 安装服务(管理员)
+rabbitmq-service.bat install
+rabbitmq-service.bat start
+```
+
+插件端口
+
+```shell
+localhost:15672
+# 账号密码
+guest
+```
+
+```shell
+# 创建用户（用户名: myuser，密码: mypassword）
+rabbitmqctl add_user myuser mypassword
+
+# 赋予管理员权限
+rabbitmqctl set_user_tags myuser administrator
+
+# 授予对所有虚拟主机（vhost）的读写权限
+rabbitmqctl set_permissions -p / myuser ".*" ".*" ".*"
+
+# 验证用户列表
+rabbitmqctl list_users
+
+# 修改用户密码（例如修改 myuser 的密码为 newpassword）
+rabbitmqctl change_password myuser newpassword
+
+# 删除用户（例如删除 guest）
+rabbitmqctl delete_user guest
+```
 
