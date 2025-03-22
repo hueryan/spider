@@ -42,6 +42,12 @@ mongod  --install --dbpath D:\ProgramFiles\mongodb\data --logpath D:\ProgramFile
 mongosh --host=localhost --port=27017
 ```
 
+可视化工具 安装 [Studio 3T](https://studio3t.com/download/) 
+
+```
+url:  mongodb://localhost:27017
+```
+
 
 
 ### Redis

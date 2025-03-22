@@ -39,3 +39,6 @@
 4.7-Elasticsearch搜索引擎存储 [_](https://github.com/Python3WebSpider/ElasticSearchTest) 
 
 4.8-RabbitMQ的使用 [_](https://github.com/Python3WebSpider/RabbitMQTest) 
+
+## [第 5 章-Ajax分析与爬取实战](ch05/)
+
