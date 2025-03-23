@@ -10,7 +10,7 @@
 
 2.4-httpx的使用 [_](https://github.com/Python3WebSpider/HttpxTest) `pip install "httpx[http2]"` 
 
-2.5-基础爬虫案例实战 [_](https://github.com/Python3WebSpider/ScrapeSsr1)  exept [spider2.py](https://github.com/Python3WebSpider/ScrapeSsr1/blob/master/spider2.py) 
+2.5-基础爬虫案例实战 [_](https://github.com/Python3WebSpider/ScrapeSsr1) 
 
 ## [第3章-网页数据的解析爬取](ch03/)
 
@@ -43,3 +43,9 @@
 ## [第 5 章-Ajax分析与爬取实战](ch05/)
 
 Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1) 
+
+## [第 6 章-异步爬虫](ch06/)
+
+6.1-协程的基本原理 
+
+6.2aiohttp 的使用 [_](https://github.com/Python3WebSpider/AsyncTest) 
