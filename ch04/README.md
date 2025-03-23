@@ -4,7 +4,9 @@
 
 ### TXT 文本文件存储
 
-- txt_demo1：通过 `with open(FILENAME, "model", encoding='utf-8') as f` 将内容写入文本
+- txt_demo1：通过 `with open(FILENAME, "model", encoding='utf-8') as f` 将内容写入文本。之前的爬虫代码
+
+- txt_demo2：pq、re、requests爬取写入
 
   | model | model |
   | ----- | ----- |

@@ -2,10 +2,6 @@ import requests
 import logging
 import re
 from urllib.parse import urljoin
-import json
-from os import makedirs
-from os.path import exists
-import multiprocessing
 logging.getLogger().setLevel(logging.INFO)
 
 import time
