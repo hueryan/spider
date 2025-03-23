@@ -14,3 +14,4 @@ for _ in range(1, TOTAL_NUMBER + 1):
     response = requests.get(URL)
 end_time = time.time()
 logging.info('total time %s seconds', end_time - start_time)
+
