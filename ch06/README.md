@@ -71,3 +71,10 @@
   - **线程池方式**：利用 ThreadPoolExecutor 实现多线程并发请求。
   - **异步方式**：利用 aiohttp 库的异步请求来并发发起请求。
 - 最后使用 timeit 模块测量各方式的执行时间，从而比较它们的性能。
+
+## 实战
+
+`pip install motor` [_](https://setup.scrape.center/motor) 
+
+- demo1：爬取 spa5 网站
+- demo2：类。。。
