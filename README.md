@@ -49,3 +49,9 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 6.1-协程的基本原理 
 
 6.2aiohttp 的使用 [_](https://github.com/Python3WebSpider/AsyncTest) 
+
+6.3aiohttp异步爬取实战 [_](https://github.com/Python3WebSpider/ScrapeSpa5) 
+
+## [第 7 章-JavaScript动态渲染页面爬虫](ch07/)
+
+7.1selenium的使用 [_](https://github.com/Python3WebSpider/SeleniumTest/) 

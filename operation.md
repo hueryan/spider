@@ -1,3 +1,5 @@
+# 存储
+
 ```shell
 conda create -n spider python=3.10
 conda activate spider
@@ -10,10 +12,6 @@ pip install aiohttp
 pip install cchardet aiodns # 字符编码检测库 cchardet, 加速 DNS 解析库 aiodns
 pip install pyquery 
 ```
-
-
-
-
 
 
 
@@ -213,3 +211,8 @@ rabbitmqctl change_password myuser newpassword
 rabbitmqctl delete_user guest
 ```
 
+# 模拟浏览器运行
+
+### Selenium
+
+[chromedriver官网](https://developer.chrome.com/docs/chromedriver/downloads?hl=zh-cn) [下载](https://chromedriver.storage.googleapis.com/index.html) 
