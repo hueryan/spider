@@ -1,12 +1,15 @@
+from typing import Tuple, Any
+
 import aiohttp
 # 导入协程库
 import asyncio
+import typing
 
-async def fetch(session, url):
+async def fetch(session, url) -> tuple[Any, Any]:
     async with session.get(url) as response:
         return await response.text(), response.status
 
-async def main():
+async def main() -> None:
     async with aiohttp.ClientSession() as session:
         html, status = await fetch(session, 'https://www.cuiqingcai.com')
         print(f'html: {html[:100]}...')
