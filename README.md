@@ -55,3 +55,5 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 ## [第 7 章-JavaScript动态渲染页面爬虫](ch07/)
 
 7.1selenium的使用 [_](https://github.com/Python3WebSpider/SeleniumTest/) 
+
+7.2Splash的使用

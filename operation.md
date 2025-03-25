@@ -216,3 +216,15 @@ rabbitmqctl delete_user guest
 ### Selenium
 
 [chromedriver官网](https://developer.chrome.com/docs/chromedriver/downloads?hl=zh-cn) [下载](https://chromedriver.storage.googleapis.com/index.html) 
+
+### Splash
+
+[官网](https://splash-cn-doc.readthedocs.io/zh-cn/latest/Installation.html) 
+
+```shell
+docker pull scrapinghub/splash # 拉取镜像
+docker run -p 8050:8050 scrapinghub/splash # 启动
+```
+
+[lua中文文档](https://lua.ac.cn/docs.html) 
+

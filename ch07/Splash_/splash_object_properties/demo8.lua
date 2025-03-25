@@ -1,0 +1,1 @@
+splash.plugins_enabled = true/false
