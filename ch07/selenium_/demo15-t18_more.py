@@ -1,4 +1,6 @@
 # 导入Selenium核心模块和Chrome浏览器配置项
+import time
+
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
 
@@ -7,6 +9,7 @@ option = ChromeOptions()
 
 # 关键反检测配置1：禁用自动化控制标识
 # 移除ChromeDriver的"enable-automation"启动参数（消除顶部自动化提示栏）
+# 防止浏览器顶部显示"Chrome正受到自动测试软件的控制"提示
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 
 # 关键反检测配置2：阻止加载自动化扩展
@@ -32,7 +35,6 @@ browser.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
         get: () => undefined  // 重写属性获取器，始终返回undefined
     })'''
 })
-
-# 访问反爬虫测试站点（崔庆才的爬虫教学示例站点）
 # 该站点专门用于演示常见反爬虫技术，测试绕过效果
-browser.get('https://antispider1.scrape.cuiqingcai.com/')
+browser.get('https://antispider1.scrape.center')
+time.sleep(2)
