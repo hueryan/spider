@@ -281,9 +281,114 @@ Splash API 调用
 
   配置[网站](https://setup.scrape.center/splash-cluster) 
 
+
+
+## Pyppeteer[停止维护]
+
+## 复现学习_withPlaywright
+
+用Playwright复现学习  
+
+**Playwright_with_Pyppeteer**
+
+ `pip install pytest-playwright` 
+
+ `pip install pyppeteer` [_](https://setup.scrape.center/pyppeteer) 
+
+`playwright install` 安装所需浏览器
+
+
+
+`browser = await p.chromium.launch()` 
+
+- 这是 Playwright 中启动一个**无状态浏览器实例**的标准方式。
+- 每次启动都是一个全新的会话，不会保留用户数据（如 Cookies、本地存储等）。
+- 等价于 `pyppeteer` 的 `launch()`：
+
+```py
+# pyppeteer
+browser = await pyppeteer.launch()
+
+# Playwright (等效写法)
+browser = await p.chromium.launch()
+```
+
+`context = await p.chromium.launch_persistent_context()` 
+
+- 这是 Playwright 中启动一个**带有持久化用户数据目录**的浏览器上下文。
+
+- 适合需要保留用户数据（如登录状态、缓存等）的场景。
+
+- `pyppeteer` 中可以通过 `userDataDir` 参数实现类似效果，但需要手动指定：
+
+  ```py
+  # pyppeteer
+  browser = await pyppeteer.launch(userDataDir='./user_data')
+  
+  # Playwright (等效写法)
+  context = await p.chromium.launch_persistent_context('./user_data')
+  ```
+
   
 
-  
+- 如果只是启动一个普通浏览器实例，用 **`p.chromium.launch()`**。
+
+- 如果需要持久化用户数据，用 **`launch_persistent_context()`**。
 
 
+
+
+
+
+
+
+
+
+
+
+
+- demo1：异步
+
+| Pyppeteer 代码             | Playwright 等价代码           | 差异说明                    |
+| :------------------------- | :---------------------------- | :-------------------------- |
+| `await launch()`           | `p.chromium.launch()`         | Playwright 需要先启动上下文 |
+| `await browser.newPage()`  | `await browser.new_page()`    | 方法名改为下划线风格        |
+| `page.screenshot({...})`   | `page.screenshot(path='...')` | 参数改为关键字形式          |
+| `asyncio.get_event_loop()` | `asyncio.run()`               | Python 3.7+ 更简洁的写法    |
+
+- demo2：设置大小，返回js [Playwright官网](https://playwright.dev/python/docs/api/class-playwright) [pyppeteer官网](https://pyppeteer.github.io/pyppeteer/reference.html) 
+- demo3:对比
+
+| Pyppeteer (`launch`) | Playwright (`browser_type.launch`)  | 说明             |
+| :------------------- | :---------------------------------- | :--------------- |
+| `headless`           | `headless`                          | 无界面模式       |
+| `args`               | `args`                              | 浏览器启动参数   |
+| `executablePath`     | `executable_path`                   | 浏览器可执行路径 |
+| `slowMo`             | `slow_mo`                           | 操作延迟（毫秒） |
+| `defaultViewport`    | `viewport` (在 `new_page()` 中设置) | 视口大小         |
+| `ignoreHTTPSErrors`  | `ignore_https_errors`               | 忽略 HTTPS 错误  |
+
+- demo4：无头模式、调试模式、禁用提示条
+
+- demo5：防止检测，隐藏webdriver属性、设置网页大小
+
+- demo6：用户数据持久化。设置用户目录。------非无痕
+
+- demo7：无痕模式访问。
+
+- demo8：Page-选择器：选取结点的选择器方法
+
+- demo9：Page-选项卡操作：2个页面选择一个为front
+
+- demo10：Page-页面操作：页面加载、前进、后退、关闭、保存等
+
+- demo11：Page-点击
+
+- demo12：Page-输入文本
+
+- demo13：Page-获取信息
+
+- demo14：Page-执行
+
+- demo15：Page-延时等待
 
