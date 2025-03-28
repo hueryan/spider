@@ -59,3 +59,5 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 7.2Splash的使用
 
 7.3Pyppeteer的使用 [_](https://github.com/Python3WebSpider/PyppeteerTest) 
+
+7.4Playwright的使用 [_](https://github.com/Python3WebSpider/PlaywrightTest/) 

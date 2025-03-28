@@ -283,9 +283,9 @@ Splash API 调用
 
 
 
-## Pyppeteer[停止维护]
+## Pyppeteer[停止维护]Playwright
 
-## 复现学习_withPlaywright
+复现学习_withPlaywright
 
 用Playwright复现学习  
 
@@ -339,14 +339,6 @@ browser = await p.chromium.launch()
 
 
 
-
-
-
-
-
-
-
-
 - demo1：异步
 
 | Pyppeteer 代码             | Playwright 等价代码           | 差异说明                    |
@@ -391,4 +383,134 @@ browser = await p.chromium.launch()
 - demo14：Page-执行
 
 - demo15：Page-延时等待
+
+## Playwright
+
+`pip install playwright` [_](https://setup.scrape.center/playwright) 
+
+有异步、有同步
+
+- demo1：同步模式、异步模式
+
+- demo2：代码生成：录制再浏览器中的操作并自动生成代码。
+
+  `playwright codegen --help` 
+
+  `-o` 输出代码文件的名称。
+
+  `--target` 代表使用的语言，默认Python。代码生成同步模式的操作代码，传入 python-async 生成异步模式的代码。
+  
+   `-b` 代表使用的浏览器，默认chromiun。
+  
+   `--device` 模拟使用手机浏览器（如iPhone16） 
+  
+  `--lang` 代表设置浏览器的语言
+  
+  `--timeout` 设置页面加载超时时间
+  
+  ```shell
+  playwright codegen -o demo2.py -b chromium --target python-async --device "iPhone 15 Pro Max"
+  ```
+  
+  context[参考](https://playwright.dev/python/docs/api/class-browsercontext) 
+  
+- demo3：支持模拟移动浏览器。
+
+**选择器**
+
+  - 文本选择：
+
+    `page.click("text=Log in")` 选择并点击文本内容是Log in 的节点。
+
+  - CSS 选择器
+
+    根据id或者class筛选
+
+    ```py
+    page.click("button")
+    page.click("#nav-bar .contact-us-item")
+    ```
+
+    根据特定的节点属性筛选
+
+    ```py
+    page.click("[data-test=login-button]")
+    page.click("[aria-label='Sign in']")
+    ```
+
+  - CSS 选择器 + 文本值
+
+    常用 `has-text` ：节点中包含指定的字符串， `text` ：节点中的文本值和指定的字符串完全匹配
+
+    ```py
+    # 选取文本值包含Playwright字符串的 article 节点
+    page.click("article:has-text('Playwright')")
+    # 选择 id 为 nav-bar 的节点中文本值为 Contact us 的节点
+    page.click("#nav-bar :text('Contact us')")
+    ```
+
+  - CSS 选择器 + 节点关系
+
+    用 has 指定另一个选择器
+
+    ```py
+    # 选择 class 为 item-description 的节点，且该节点还包含class为item-promo-babber的子节点
+    page.click(".item-description:has(.item-promo-banner)")
+    ```
+
+    right-of 指定位于某个节点右侧的节点
+
+    ```py
+    # 选择第一个 input 节点，并且该节点要位于文本值为 Username 的节点的右侧
+    page.click("input:right-of(:text('Username'))")
+    ```
+
+  - XPaht
+
+    ```py
+    # 开头指定 "xpath=字符串"，代表这个字符串是一个XPath表达式
+    page.click("xpath=//button")
+    ```
+
+    选择器的用法和最佳实践 [参考](https://playwright.dev/docs/api/class-playwright#playwright-selectors) 
+
+**常用操作方法** [API](https://playwright.dev/python/docs/api/class-page) 
+
+- demo5：事件监听。Page对象提供 on 方法，用来监听页面中发生的各个事情，如cloas、console、load、request、response等
+
+- demo6：修改demo5，截获 Ajax 请求
+
+- demo7：获取网页源代码
+
+**页面点击** [参考](https://playwright.dev/python/docs/api/class-page#page-click) [新版](https://playwright.dev/python/docs/api/class-locator#locator-click) 
+
+  `page.click(selector, **kwargs)` 
+
+​	selector:选择器，多个则返回第一个
+
+​	click_count：点击次数，默认为1
+
+​	timeout：等待找到要点击的节点的超时时间，默认30s
+
+​	position：传入字典，带有x、y属性，代表点击位置相对节点左上角的偏移量。
+
+​	force：即使按键设置了不可点击，也要强制点击。默认False
+
+**文本输入**
+
+​	`page.fill(selector, value, **kwargs)` 
+
+​	`value` 代表输入的内容。通过timeout设置最长等待时间
+
+**获取节点属性**
+
+- demo8：获取节点属性、获取多个节点、获取单个节点
+
+
+
+- demo9：网络劫持，通过route实现网络劫持和修改操作。
+  该demo设置的用处：图片资源是二进制文件，我们爬取过程可能并不关心具体的二进制文件内容，只关心图片的URL，所以浏览器中是否把图片加载出来就不重要了，如此可以提高整个网页的加载速度，提高爬取效率。
+- demo10：还可以对一些相应内容进行修改，如直接响应结果修改为自定义的文本内容。
+
+
 
