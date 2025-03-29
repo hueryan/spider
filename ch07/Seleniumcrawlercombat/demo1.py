@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO,
 
 INDEX_URL = 'https://spa2.scrape.center/page/{page}'
 TIME_OUT = 10
-TOTAL_PAGE = 1
+TOTAL_PAGE = 10
 
 browser = webdriver.Chrome()
 wait = WebDriverWait(browser, TIME_OUT)
