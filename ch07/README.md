@@ -529,5 +529,10 @@ browser = await p.chromium.launch()
 - d2：爬取详情页
 - d3：存储数据
 
+## CSS位置偏移反爬案例分析与爬取实战
 
+- demo1：CSS偏移
 
+- demo2：获取CSS偏移值，然后排序。
+- demo3：处理不含有 .char 的title
+- css_offset_Playwright：通过Playwright遍历所以网页
