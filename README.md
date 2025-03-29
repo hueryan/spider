@@ -62,3 +62,5 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 
 7.4Playwright的使用 [_](https://github.com/Python3WebSpider/PlaywrightTest/) 
 7.5Selenium爬取实战 
+
+7.6Playwright爬取实战 [_](https://github.com/Python3WebSpider/ScrapeSpa2) 

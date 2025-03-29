@@ -519,5 +519,15 @@ browser = await p.chromium.launch()
 - demo3：数据存储
 - demo4：无头模式
 
+## Pyppeteer实战WithPlaywright
+
+- demo：爬取列表页、爬取详情页、存储数据
+
+
+
+- d1：爬取列表页
+- d2：爬取详情页
+- d3：存储数据
+
 
 
