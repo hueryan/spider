@@ -228,3 +228,32 @@ docker run -p 8050:8050 scrapinghub/splash # 启动
 
 [lua中文文档](https://lua.ac.cn/docs.html) 
 
+# 验证码识别
+
+### OCR
+
+安装 [tesseract](https://github.com/tesseract-ocr/tesseract) 配置环境变量。测试
+
+```shell
+# tesseract 图片名称 生成的结果文件的名称 字库
+tesseract test.png result -l chi_sim
+# 查看支持的语言
+tesseract --list-langs
+```
+
+再安装 tesserocr 库 `conda install -c conda-forge tesserocr`  
+
+配置变量名 `TESSDATA_PREFIX` 值为 `.\Tesseract-OCR\tessdata` 
+
+```py
+import tesserocr
+from PIL import Image
+# 通过构造 image 转化
+image = Image.open('image.png')
+print(tesserocr.image_to_text(image))
+
+# 直接读取 file
+import tesserocr
+print(tesserocr.file_to_text('image.png'))
+```
+
