@@ -69,3 +69,8 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 7.7CSS位置偏移反爬案例分析与爬取实战 [_](https://github.com/Python3WebSpider/ScrapeAntispider3) 
 
 7.8字体反爬案例分析与爬取实战 [_](https://github.com/Python3WebSpider/ScrapeAntispider4) 
+
+## [第 8 章-验证码的识别](./ch08)
+
+8.1使用OCR技术识别图形验证码 [_](https://github.com/Python3WebSpider/CrackImageCaptcha) 
+
