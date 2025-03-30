@@ -67,3 +67,5 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 7.6Playwright爬取实战 [_](https://github.com/Python3WebSpider/ScrapeSpa2) 
 
 7.7CSS位置偏移反爬案例分析与爬取实战 [_](https://github.com/Python3WebSpider/ScrapeAntispider3) 
+
+7.8字体反爬案例分析与爬取实战 [_](https://github.com/Python3WebSpider/ScrapeAntispider4) 

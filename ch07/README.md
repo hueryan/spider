@@ -532,7 +532,11 @@ browser = await p.chromium.launch()
 ## CSS位置偏移反爬案例分析与爬取实战
 
 - demo1：CSS偏移
-
 - demo2：获取CSS偏移值，然后排序。
 - demo3：处理不含有 .char 的title
 - css_offset_Playwright：通过Playwright遍历所以网页
+
+## 字体反爬
+
+- demo1：出现问题
+- demo2：解决伪元素问题
