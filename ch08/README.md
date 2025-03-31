@@ -37,3 +37,80 @@
 - demo3：处理图片删除干扰值。
 
 - demo4：登录验证
+
+## 使用OpenCV识别滑动验证码的缺口
+
+`pip install opencv-python` [_](https://setup.scrape.center/opencv-python) 
+
+- 高斯模糊：去除图片的噪声，将图片模糊化。
+
+  ```py
+  def GaussianBlur(src, ksize, sigmaX, dst=None, sigmaY=None, borderType=None)
+  ```
+
+  src:处理图片
+
+  ksize：高斯滤波处理所用的高斯内核大小，传入元组，包含x,y两元素
+
+  sigmaX：高斯内核函数在X方向上的标准偏差。
+
+  sigmaY：高斯内核函数在Y方向上的标准偏差。若为0，就将他设置为sigmaX；若X和Y都为0，通过ksize计算出sigmaX，sigmaY
+
+- 边缘检测：找出缺口位置
+
+  ```py
+  def Canny(image, threshold1, threshold2, edges=None, apertureSize=None, L2gradient=None)
+  ```
+
+  image：预处理图片
+
+  threshold1，threshold2：阈值，分别为最小最大判定临界点。
+
+  apertureSize：应用查找图片渐变的索贝尔内核大小
+
+  L2gradient：查找梯度幅度的方式。
+
+- 轮廓提取：
+
+  ```py
+  def findContours(image, mode, method, contours=None, hierarchy=None, offset=None)
+  ```
+
+  image：图片
+
+  mode：定义轮廓的检索模式，详情见OpenCV官方文档中对RetrievalModes的介绍
+
+  method：用于定义轮廓的近似方法。详情见OpenCV官方文档中对ContourApproximationModes的介绍
+
+- 外接矩阵：计算出轮廓的外界矩形，以便我们根据面积、周长等参数判断提取到的轮廓是否为目标缺口轮廓。
+
+  ```py
+  def boundingRect(arrat)
+  ```
+
+  array:可以是一个灰度图或者2D点集，这里传入轮廓信息。
+
+-  轮廓面积
+
+  ```py
+  def contourArea(contour, oriented=None)
+  ```
+
+  contour：轮廓信息
+
+  oriented：方向标识符，默认False。若取True，则该方法返回一个带符号的面积值，正负取决于轮廓的方向（顺、逆时针）。若去False，返回绝对值。
+
+- 轮廓周长
+
+  ```py
+  def arcLength(curve, closed)
+  ```
+
+  curve：轮廓信息
+
+  closed：轮廓是否封闭
+
+- demo：缺口识别
+
+  
+
