@@ -257,3 +257,44 @@ import tesserocr
 print(tesserocr.file_to_text('image.png'))
 ```
 
+### Pytorch
+
+[CSDN](https://blog.csdn.net/Stromboli/article/details/142705892) 
+
+查看支持最高版本的Cuda `nvidia-smi` 
+
+[cuda11.7](https://developer.nvidia.com/cuda-11-7-0-download-archive)  [其他版本URL](https://pytorch.org/get-started/previous-versions/) 
+
+配置环境变量
+
+`nvcc -V` 查看当前版本
+
+```shell
+# 切换虚拟环境
+conda activate spider
+# 安装
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
+# 卸载
+pip uninstall torch torchvision torchaudio
+```
+
+```py
+# 验证
+import torch
+
+print(torch.__version__)
+# 支持 CUDA 的版本：版本号中包含 cuXXX（如 1.13.1+cu117）。
+# CPU 版本：版本号中显示 cpu（如 1.13.1+cpu）。
+
+print("CUDA Available:", torch.cuda.is_available())
+print("CUDA Device Count:", torch.cuda.device_count())
+print("Current CUDA Device:", torch.cuda.current_device())
+print("Current Device Name:", torch.cuda.get_device_name(torch.cuda.current_device()))
+```
+
+
+
+安装cuDNN [_](https://developer.nvidia.com/rdp/cudnn-archive) [CSDN](https://blog.csdn.net/qq_52730883/article/details/130650143) 
+
+移动到对应的文件夹中，配置环境变量
+
