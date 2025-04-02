@@ -75,3 +75,5 @@ Ajax实战 [-](https://github.com/Python3WebSpider/ScrapeSpa1)
 8.1使用OCR技术识别图形验证码 [_](https://github.com/Python3WebSpider/CrackImageCaptcha) 
 
 8.2使用OpenCV识别滑动验证码的缺口 [_](https://github.com/Python3WebSpider/CrackSlideCaptcha) 
+
+8.3使用深度学习识别图形验证码 [_](https://github.com/Python3WebSpider/DeepLearningImageCaptcha) 

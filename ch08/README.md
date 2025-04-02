@@ -114,3 +114,8 @@
 
   
 
+## 使用深度学习识别图形验证码
+
+安装 [_](https://setup.scrape.center/pytorch) [官网](https://pytorch.org/get-started/previous-versions/) 
+
+captcha 验证码生成器 `pip install captcha` 
