@@ -119,3 +119,15 @@
 安装 [_](https://setup.scrape.center/pytorch) [官网](https://pytorch.org/get-started/previous-versions/) 
 
 captcha 验证码生成器 `pip install captcha` 
+
+先执行generate.py 修改 count和path 当TRAIN_DATASET_PATH 时count足够大（10w），EVAL_DATASET_PATH时，count设置3000就可以
+
+运行train，后面可以进行预测
+
+## 使用深度学习识别滑动验证码的缺口
+
+```
+pip install matplotlib tensorflow==2.8.0 terminaltables tensorboard pillow tqdm loguru
+```
+
+执行collect.py截取图片
